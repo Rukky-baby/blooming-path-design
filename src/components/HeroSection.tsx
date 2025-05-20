@@ -8,10 +8,10 @@ const HeroSection = () => {
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6 animate-fade-in">
-            <span className="text-bloom-purple">Whatever stage you're in</span> — love, growth, healing — we're right there with you.
+            <span className="text-bloom-purple">Wherever you are in your journey</span> — let's grow through it together.
           </h1>
           <p className="text-lg md:text-xl text-bloom-gray/90 mb-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
-            Bloomingship curates content and connections that meet you exactly where you are — because healthy relationships begin with self-understanding.
+            Join a relationship platform that listens, supports, and evolves with you.
           </p>
           <Button 
             className="bg-bloom-purple hover:bg-bloom-purple-dark text-white rounded-full px-8 py-6 text-lg shadow-lg animate-fade-in" 
