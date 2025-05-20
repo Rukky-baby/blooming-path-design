@@ -7,7 +7,6 @@ import ZonesSection from "@/components/ZonesSection";
 import ExpertsSection from "@/components/ExpertsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
-import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -22,7 +21,6 @@ const Index = () => {
       <ExpertsSection />
       <TestimonialsSection />
       <FAQSection />
-      <CallToAction />
       <Footer />
       <ScrollToTop />
     </div>
