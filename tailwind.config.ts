@@ -103,6 +103,10 @@ export default {
 				'bloom': {
 					'0%': { transform: 'scale(0.95)', opacity: '0' },
 					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
@@ -110,7 +114,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
 				'pulse-gentle': 'pulse-gentle 3s infinite ease-in-out',
-				'bloom': 'bloom 0.5s ease-out'
+				'bloom': 'bloom 0.5s ease-out',
+				'float': 'float 3s infinite ease-in-out'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
