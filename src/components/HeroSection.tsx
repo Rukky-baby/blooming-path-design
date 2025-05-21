@@ -1,9 +1,21 @@
 
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Flower } from "lucide-react";
+import { Flower, Sprout } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const HeroSection = () => {
+  const [bloom, setBloom] = useState(false);
+  
+  useEffect(() => {
+    // Start the blooming animation after component mounts
+    const timer = setTimeout(() => {
+      setBloom(true);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(155,135,245,0.1),transparent)] pointer-events-none"></div>
@@ -25,47 +37,66 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Visual - Right Side */}
+          {/* Visual - Right Side: Animated Blooming Flower */}
           <div className="relative animate-fade-in" style={{ animationDelay: "300ms" }}>
             <div className="relative rounded-2xl overflow-hidden shadow-xl bg-white/50 backdrop-blur-sm border border-bloom-purple/10">
               <AspectRatio ratio={4/3} className="w-full">
                 <div className="absolute inset-0 bg-gradient-to-br from-bloom-purple/5 to-bloom-rose/10"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* Large central flower */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse-gentle" style={{ animationDelay: "0ms" }}>
-                      <div className="relative">
-                        <Flower size={160} className="text-bloom-purple opacity-75" strokeWidth={1.5} />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-10 h-10 bg-bloom-peach rounded-full"></div>
-                        </div>
+                  {/* Animated Blooming Flower */}
+                  <div className="relative w-72 h-72">
+                    {/* Center of flower */}
+                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-bloom-peach z-20 shadow-inner transition-all duration-1000 ${bloom ? 'scale-100' : 'scale-0'}`}></div>
+                    
+                    {/* Flower petals - staggered animation */}
+                    {[...Array(8)].map((_, i) => (
+                      <div 
+                        key={i} 
+                        className={`absolute top-1/2 left-1/2 w-24 h-24 -translate-x-1/2 -translate-y-1/2 transition-all duration-1500 ease-out z-10`}
+                        style={{ 
+                          transform: `translate(-50%, -50%) rotate(${i * 45}deg) translateY(${bloom ? -60 : 0}px)`, 
+                          opacity: bloom ? 1 : 0,
+                          transitionDelay: `${i * 100}ms`
+                        }}
+                      >
+                        <div 
+                          className="w-20 h-32 rounded-full bg-bloom-purple/80 origin-bottom"
+                          style={{ 
+                            transform: `translateX(10px) rotate(45deg) scaleY(${bloom ? 1 : 0.2})`,
+                            transitionProperty: 'transform, opacity',
+                            transitionDuration: '1.5s',
+                            transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                          }}
+                        ></div>
                       </div>
+                    ))}
+                    
+                    {/* Stem */}
+                    <div className={`absolute top-1/2 left-1/2 w-4 h-48 bg-bloom-sage rounded-full -translate-x-1/2 origin-top transition-all duration-1000 ${bloom ? 'scale-y-100' : 'scale-y-0'}`} style={{ transformOrigin: 'center top' }}></div>
+                    
+                    {/* Small sprouts/leaves */}
+                    <div className={`absolute top-[60%] left-[48%] transition-all duration-1000 ${bloom ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '800ms' }}>
+                      <Sprout className="text-bloom-sage transform -rotate-30 scale-100" size={30} />
+                    </div>
+                    <div className={`absolute top-[70%] left-[54%] transition-all duration-1000 ${bloom ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1000ms' }}>
+                      <Sprout className="text-bloom-sage transform rotate-30 scale-75" size={24} />
                     </div>
                     
-                    {/* Smaller flowers scattered around */}
-                    <div className="absolute top-[20%] left-[20%] animate-pulse-gentle" style={{ animationDelay: "500ms" }}>
-                      <Flower size={60} className="text-bloom-rose opacity-60" strokeWidth={1.5} />
-                    </div>
-                    <div className="absolute bottom-[25%] right-[15%] animate-pulse-gentle" style={{ animationDelay: "1200ms" }}>
-                      <Flower size={70} className="text-bloom-purple opacity-60" strokeWidth={1.5} />
-                    </div>
-                    <div className="absolute top-[15%] right-[25%] animate-pulse-gentle" style={{ animationDelay: "800ms" }}>
-                      <Flower size={50} className="text-bloom-sage opacity-70" strokeWidth={1.5} />
-                    </div>
-                    <div className="absolute bottom-[20%] left-[25%] animate-pulse-gentle" style={{ animationDelay: "1500ms" }}>
-                      <Flower size={45} className="text-bloom-peach opacity-50" strokeWidth={1.5} />
-                    </div>
-                    
-                    {/* Floating petals */}
-                    <div className="absolute top-[40%] left-[60%] animate-float">
-                      <div className="w-6 h-6 bg-bloom-purple/30 rounded-full transform rotate-45"></div>
-                    </div>
-                    <div className="absolute top-[30%] right-[35%] animate-float" style={{ animationDelay: "1s" }}>
-                      <div className="w-4 h-4 bg-bloom-rose/40 rounded-full transform rotate-12"></div>
-                    </div>
-                    <div className="absolute bottom-[35%] left-[40%] animate-float" style={{ animationDelay: "2s" }}>
-                      <div className="w-5 h-5 bg-bloom-peach/30 rounded-full transform rotate-30"></div>
-                    </div>
+                    {/* Floating particles */}
+                    {bloom && [...Array(8)].map((_, i) => (
+                      <div
+                        key={`particle-${i}`}
+                        className="absolute rounded-full bg-bloom-purple/30"
+                        style={{
+                          width: `${Math.random() * 8 + 3}px`,
+                          height: `${Math.random() * 8 + 3}px`,
+                          top: `${Math.random() * 100}%`,
+                          left: `${Math.random() * 100}%`,
+                          animation: `float ${Math.random() * 3 + 2}s infinite ease-in-out`,
+                          animationDelay: `${Math.random() * 2}s`
+                        }}
+                      ></div>
+                    ))}
                   </div>
                 </div>
               </AspectRatio>
