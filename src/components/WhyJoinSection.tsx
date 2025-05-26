@@ -8,7 +8,7 @@ const userTypes = [
     color: "bg-bloom-sage/20",
   },
   {
-    type: "Singles (Not Ready)",
+    type: "Singles (Choosing Me First)",
     benefit: "Empowering content for growth, reflection, and rediscovery",
     color: "bg-bloom-rose/20",
   },
@@ -18,7 +18,7 @@ const userTypes = [
     color: "bg-bloom-peach/20",
   },
   {
-    type: "Dating",
+    type: "In a Relationship",
     benefit: "Tools to build trust, improve communication, and stay emotionally aligned",
     color: "bg-bloom-purple/20",
   },
