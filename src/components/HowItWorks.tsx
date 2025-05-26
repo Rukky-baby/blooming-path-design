@@ -1,11 +1,10 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, HeartHandshake, Settings, MessageSquare } from "lucide-react";
 
 const steps = [
   {
-    title: "Join & Set Up",
-    description: "Answer 20 thoughtful questions to help us understand your relationship perspective and emotional style.",
+    title: "Join & Discover",
+    description: "Answer 20 thoughtful questions that uncover your personality type helping us personalize your experience.",
     icon: <Check className="w-6 h-6 text-bloom-purple" />,
   },
   {
@@ -14,13 +13,13 @@ const steps = [
     icon: <Settings className="w-6 h-6 text-bloom-purple" />,
   },
   {
-    title: "Learn & Grow",
-    description: "Access content from trusted experts, psychologists, and relatable voices.",
+    title: "Learn and Grow",
+    description: "Access contents from trusted experts, psychologists, and authentic voices who understand your journey.",
     icon: <MessageSquare className="w-6 h-6 text-bloom-purple" />,
   },
   {
-    title: "Find Your Zone (Optional)",
-    description: "Explore a custom space built for your life stage — with tools, conversations, and guidance specific to your current needs.",
+    title: "Find Your Zone",
+    description: "Explore a custom space built for your life stage, with tools, conversations, and guidance specific to your current needs.",
     icon: <HeartHandshake className="w-6 h-6 text-bloom-purple" />,
   },
 ];
