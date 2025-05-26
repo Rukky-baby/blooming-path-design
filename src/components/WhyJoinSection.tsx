@@ -13,7 +13,7 @@ const userTypes = [
     color: "bg-bloom-rose/20",
   },
   {
-    type: "Singles (Dating)",
+    type: "Singles (Open to Love)",
     benefit: "Mindful insights into attraction, compatibility, and readiness",
     color: "bg-bloom-peach/20",
   },
