@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 
 const userTypes = [
@@ -14,7 +13,7 @@ const userTypes = [
   },
   {
     type: "Singles (Open to Love)",
-    benefit: "Mindful insights into attraction, compatibility, and readiness",
+    benefit: "Access to intentional matchmaking designed to help you find meaningful, compatible connections with support every step of the way.",
     color: "bg-bloom-peach/20",
   },
   {
