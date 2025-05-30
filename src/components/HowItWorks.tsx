@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, HeartHandshake, Settings, MessageSquare } from "lucide-react";
 
@@ -31,7 +32,7 @@ const HowItWorks = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Your space. Your pace.</h2>
           <p className="text-lg text-bloom-gray/80 max-w-2xl mx-auto">
-            Bloomingship adapts to where you are in your relationship journey, providing the right content at the right time.
+            Bloomingship adapts to where you are in your relationship journey offering guidance, connection, tools, and content at the right time.
           </p>
         </div>
 
